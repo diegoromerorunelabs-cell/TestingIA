@@ -1,21 +1,21 @@
-Feature: Cnarios Platform Validation
+Feature: Cnarios.com Automation Testing
 
-Scenario: Verify Cnarios Home Page Title and Main Content
-  Given Navigate to Cnarios home page
-  When Page loads successfully
-  Then Verify page title contains "Cnarios"
-  And Verify main headline is visible
+  Background:
+    Given User navigates to Cnarios homepage
+    And Page should load successfully
 
-Scenario: Verify Cnarios Navigation and Platform Features
-  Given Navigate to Cnarios home page
-  When Page loads successfully
-  Then Verify main navigation is displayed
-  And Verify "Sign Up" or "Register" button is visible
-  And Verify "Learn More" or "Explore" button exists
+  Scenario: TC001 - Verify Start Exploring Button Navigation
+    When User clicks on "Start Exploring" button
+    Then User should be navigated to explore page
+    And URL should contain "/explore"
 
-Scenario: Verify Cnarios Services and Value Proposition
-  Given Navigate to Cnarios home page
-  When Page loads successfully
-  Then Verify services section is displayed
-  And Verify at least 2 service cards or value propositions are visible
-  And Verify service descriptions contain informative text
+  Scenario: TC002 - Verify Challenges Button Navigation
+    When User clicks on "Challenges" button
+    Then User should be navigated to challenges page
+    And URL should contain "/challenges"
+
+  Scenario: TC003 - Verify Contact Us Email Link
+    When User scrolls to contact section
+    And User clicks on "Drop Us a Line" email link
+    Then Email client should open with correct recipient
+    And Subject should contain "Hello from Your Automation Playground"
